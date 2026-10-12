@@ -12,7 +12,7 @@ print(f'Using device: {device}')
 #load YOLO11 model file from current directory
 model = YOLO("yolo11n.pt").to(device)
 # accepts all formats - image/dir/Path/URL/video/PIL/ndarray. source=0 for webcam
-source = "bus.png"  
+source = "image.webp"  
 path = f"pictures/inputs/{source}"
 results = model.predict(source=path)  # Display preds. Accepts all YOLO predict arguments, can add show=true to show image
 resultName = f"{source.split('.')[0]}_results.jpg"

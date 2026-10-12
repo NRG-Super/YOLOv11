@@ -1,1 +1,2 @@
-/pictures
+/pictures      #.gitignore means that github will ignore the folder
+.venv/

@@ -9,7 +9,7 @@ HOME = os.getcwd()
 
 model = YOLO('yolo11n.pt')
 image = Image.open(requests.get('https://media.roboflow.com/notebooks/examples/dog.jpeg', stream=True).raw)
-result = model.predict(image, conf=0.25)[0]
+result = model.predict(image, conf=0.25)
 
 # detections = sv.Detections.from_ultralytics(result)
 
