@@ -1,0 +1,30 @@
+﻿YOLO11 Installation Process
+
+
+1. Run the following commands in Windows Powershell:
+py -m pip install supervision
+py -m pip install ultralytics
+2. Make sure Python312\Scripts file is in the Windows PATH variable (312 is for Version 3.12)
+3. Open and run Python on an IDE
+4. Write your own program but make sure you have the following lines of code:
+from ultralytics import YOLO
+model = YOLO(“yolo11n.pt”)
+*Note: “yolo11n.pt” is the name of the version of YOLO we have in our directory and want to run.
+
+How to use your GPU(s)
+
+1. You may also need to uninstall any existing PyTorch or Torchvision things you already have installed so run:
+py -m pip uninstall torch torchvision
+2. Go to PyTorch's website and see what versions of CUDA they have
+https://pytorch.org/
+3. Search up NVIDIA CUDA ToolKit and download the correct version (as of 10/7/2024, that would be 12.4)
+4. Run the command in powershell, in this case that would be:
+py -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+5. Only NOW, download PyTorch and choose the correct CUDA version (as of 10/7/2024, that would be 12.4)
+
+Now when coding in Python, make sure to add the following lines of code:
+import torch
+
+# Check for CUDA device and set it
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+model = YOLO("yolo11n.pt").to(device) #added .to(device) so YOLO11 uses the GPU
